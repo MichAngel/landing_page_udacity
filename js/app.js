@@ -18,18 +18,16 @@
  *
 */
 
-const navi__items = document.querySelectorAll(".landing__container");
-for (const navi__item of navi__items) {
-
-    console.log('nav__item:', navi__item);
-}
-
+const navbar = document.getElementById("navbar__list");
+const sections = document.querySelectorAll("section");
+console.log(sections);
+console.log(navbar);
 
 /**
  * End Global Variables
  * Start Helper Functions
  *
-*/
+ */
 
 
 
@@ -41,18 +39,15 @@ for (const navi__item of navi__items) {
 
 // build the nav
 
-function build__li() {
-    const navi__ul = document.getElementById("navbar__list");
-    const navi__li = document.createElement("li");
-    const navi__li_text = document.innerHTML = "${navi__item}";
-    // navi__li.appendChild(navi__li_text);
-    navi__ul.appendChild(navi__li);
 
-    console.log(navi__li);
-
+function build__nvUx() {
+    const nav__li = document.createElement("li");
+    nav__li.innerHTML = `<a href="index.html">hello</a>`;
+    nav__li.className = "navbar__menu li";
+    navbar.appendChild(nav__li);
+    console.log(nav__li);
 };
 
-build__li();
 
 
 // Add class 'active' to section when near top of viewport
@@ -65,11 +60,17 @@ build__li();
  * End Main Functions
  * Begin Events
  *
-*/
+ */
 
 // Build menu 
+
+function build__mnUx() {
+
+}
 
 // Scroll to section on link click
 
 // Set sections as active
 
+build__mnUx();
+build__nvUx();
