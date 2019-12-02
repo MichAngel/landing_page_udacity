@@ -11,17 +11,16 @@
  *
  * JS Standard: ESlint
  *
-*/
+ */
 
 /**
  * Define Global Variables
  *
-*/
+ */
 
 const navbar = document.getElementById("navbar__list");
+const navbar__head = document.getElementById("navbar__menu");
 const sections = document.querySelectorAll("section");
-console.log(sections);
-console.log(navbar);
 
 /**
  * End Global Variables
@@ -41,11 +40,16 @@ console.log(navbar);
 
 
 function build__nvUx() {
-    const nav__li = document.createElement("li");
-    nav__li.innerHTML = `<a href="index.html">hello</a>`;
-    nav__li.className = "navbar__menu li";
-    navbar.appendChild(nav__li);
-    console.log(nav__li);
+    for (section of sections) {
+        const nav__li = document.createElement("li");
+        nav__li.innerHTML = `<a href="#${section.id}">${section.id}</a>`;
+        nav__li.className = "navbar__menu li";
+        navbar.appendChild(nav__li);
+        console.log(nav__li);
+        console.log(section);
+    };
+
+    build__mnUx();
 };
 
 
@@ -65,6 +69,7 @@ function build__nvUx() {
 // Build menu 
 
 function build__mnUx() {
+    navbar__head.className = "navbar__menu ul";
 
 }
 
@@ -72,5 +77,4 @@ function build__mnUx() {
 
 // Set sections as active
 
-build__mnUx();
 build__nvUx();
