@@ -11,15 +11,17 @@ function build__nvUx() {
         const nav__li = document.createElement("li");
         // Insert html into LI
         nav__li.innerHTML = `<a onclick="anch__scroll(${section.id})" href="#${section.id}">${section.id}</a>`;
-        // add classnames to LI
-        nav__li.className = "navbar__menu li";
         // append li to ul
         navbar.appendChild(nav__li);
     };
-    build__mnUx();
 };
 build__nvUx();
 
+function anch__scroll() {
+    document.getElementById(section.id).scrollIntoView({
+        behavior: "smooth"
+    });
+};
 
 function add__listeners() {
     for (section of sections) {
@@ -40,15 +42,11 @@ function add__listeners() {
     };
 };
 
-add__listeners();
-
-// Scroll to anchor ID using scrollTO event
 
 function build__mnUx() {
-    navbar__head.firstChild.className = "navbar__menu ul";
+    navbar__head.className = "navbar__menu ul, .navbar__menu, .menu__link:hover";
 
 }
 
-    // Scroll to section on link click
-
-// Set sections as active
+build__mnUx();
+add__listeners();
