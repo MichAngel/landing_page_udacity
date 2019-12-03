@@ -1,13 +1,3 @@
-/*
- *
- * CSS written based on SMACSS architecture.
- * To learn more, visit: http://smacss.com/
- * 
- * For simplicity, no reset or normalize is added. 
- * To learn more, visit: https://css-tricks.com/reboot-resets-reasoning/
- *
-*/
-
 /* ---- Base Rules ---- */
 body {
   background: rgb(136, 203, 171);
@@ -66,6 +56,8 @@ section {
 
 /* Navigation Styles*/
 .navbar__menu ul {
+  display: flex;
+  justify-content: space-around;
   padding-left: 0;
   margin: 0;
   text-align: right;
@@ -213,12 +205,12 @@ section.your-active-class {
   );
 }
 
-section.your-active-class .landing__container::before {
+section.active__class .landing__container::before {
   opacity: 1;
   animation: rotate 4s linear 0s infinite forwards;
 }
 
-section.your-active-class .landing__container::after {
+section.active__class .landing__container::after {
   opacity: 1;
   animation: rotate 5s linear 0s infinite forwards reverse;
 }
