@@ -61,6 +61,8 @@ section {
   padding-left: 0;
   margin: 0;
   text-align: right;
+  line-height: 2rem;
+  background: #f0f0f0;
 }
 
 .navbar__menu li {
