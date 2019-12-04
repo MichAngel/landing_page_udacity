@@ -21,6 +21,8 @@ function anch__scroll() {
     document.getElementById(section.id).scrollIntoView({
         behavior: "smooth"
     });
+    event.preventDefault();
+    console.log(section.id);
 };
 
 function add__listeners() {
