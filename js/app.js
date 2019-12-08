@@ -19,6 +19,7 @@ function build__nvUx() {
 
     const isInViewport = function (section) {
         let bounding = section.getBoundingClientRect();
+        console.log(bounding);
         return (
             bounding.top >= 0 &&
             bounding.left >= 0 &&
@@ -26,7 +27,7 @@ function build__nvUx() {
             bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
         );
     };
-    function classAdd(sections) {
+    function classAdd(section) {
         if (isInViewport === true) {
             section.classList.add("active__class");
         }
