@@ -7,9 +7,11 @@ for (let i = 0; i < body__sections.length; i++) {
     nav__li.innerHTML = `<a href="#${sections[i].id}">${sections[i].id}</a>`;
     navbar__list.appendChild(nav__li);
 
-    const isInViewport = function (sections) {
-        let bounding = sections.getBoundingClientRect();
-        console.log(bounding);
+};
+for (let i = 0; i < body__sections.length; i++) {
+    function isInViewport(body__sections) {
+        const bounding = body__sections.getBoundingClientRect();
+        console.log(body__sections);
         return (
             bounding.top >= 0 &&
             bounding.left >= 0 &&
@@ -19,14 +21,12 @@ for (let i = 0; i < body__sections.length; i++) {
             (window.innerWidth || document.documentElement.clientWidth)
         );
     };
-
-    function classAdd(sections) {
-        if (isInViewport === true) {
-            sections.classList.add("active__class");
-        } else isInViewport === false;
-        sections.classList.remove("active__class");
+    function classAdd(body__sections) {
+        if (isInViewport(body__sections) === true) {
+            body__sections.classList.add("active__class");
+        } else (isInViewport(body__sections) === false);
+        body__sections.classList.remove("active__class");
     };
-
 };
 window.addEventListener("scroll", classAdd);
 
