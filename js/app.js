@@ -1,27 +1,19 @@
-const navbar = document.getElementById("navbar__list");
-const navbar__head = document.getElementById("navbar__menu");
-const sections = document.querySelectorAll("section");
+const body__sections = document.querySelectorAll("section");
+const nav__bar = document.getElementById("navbar__list");
 
-function build__nvUx() {
-    // Loop over sections to determine lis to build
-    for (section of sections) {
-        // construct LI
-        const nav__li = document.createElement("li");
-        // Insert html into LI
-        let nav__head = document.getElementsByName("h2");
-        nav__li.innerHTML = `<a href="#${section.id}">${section.id}</a>`;
-        // append li to ul
-        navbar.appendChild(nav__li);
-    }
-    function build__mnUx() {
-        navbar__head.className =
-            "navbar__menu ul, .navbar__menu, .menu__link:hover";
-    }
-    build__mnUx();
+for (let i = 0; i < body__sections.length; i++) {
+    const nav__li = document.createElement("li");
+    const sections = document.getElementsByTagName("section");
+    nav__li.innerHTML = `<a href="#${sections[i].id}">${sections[i].id}</a>`;
+    navbar__list.appendChild(nav__li);
 
-    const isInViewport = function (section) {
-        let bounding = section.getBoundingClientRect();
-        console.log(bounding);
+};
+
+
+for (let i = 0; i < body__sections.length; i++) {
+    const body__sections = document.querySelectorAll("section");
+    function isInViewport(body__sections) {
+        let bounding = body__sections.getBoundingClientRect();
         return (
             bounding.top >= 0 &&
             bounding.left >= 0 &&
@@ -31,15 +23,14 @@ function build__nvUx() {
             (window.innerWidth || document.documentElement.clientWidth)
         );
     };
-    function classAdd(section) {
-        if (isInViewport === true) {
-            section.classList.add("active__class");
-        } else isInViewport === false;
-        section.classList.remove("active__class");
-    }
-    window.addEventListener("scroll", classAdd);
-}
-build__nvUx();
+
+    window.addEventListener("scroll", function (event) {
+        if (isInViewport(body__sections)) {
+            body__sections.classList.add("active__class");
+        }
+    });
+};
+
 
 // Script retrieved from https://stackoverflow.com/questions/7717527/smooth-scrolling-when-clicking-an-anchor-link
 
