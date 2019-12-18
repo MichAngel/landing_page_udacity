@@ -11,9 +11,11 @@ for (let i = 0; i < body__sections.length; i++) {
 
 
 for (let i = 0; i < body__sections.length; i++) {
-    const body__sections = document.querySelectorAll("section");
-    function isInViewport(body__sections) {
-        let bounding = body__sections.getBoundingClientRect();
+    const section__title = document.getElementsByTagName("section");
+    const section__titleArr = Array.from(section__title);
+    console.log(section__titleArr);
+    let isInViewport = function (section__titleArr) {
+        const bounding = section__titleArr[i].getBoundingClientRect();
         return (
             bounding.top >= 0 &&
             bounding.left >= 0 &&
@@ -23,10 +25,9 @@ for (let i = 0; i < body__sections.length; i++) {
             (window.innerWidth || document.documentElement.clientWidth)
         );
     };
-
-    window.addEventListener("scroll", function (event) {
-        if (isInViewport(body__sections)) {
-            body__sections.classList.add("active__class");
+    window.addEventListener("scroll", function () {
+        if (isInViewport(section__titleArr)) {
+            section__titleArr.classList.add("active__class");
         }
     });
 };
