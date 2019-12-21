@@ -15,21 +15,21 @@ for (let i = 0; i < body__sections.length; i++) {
     const section__titleArr = Array.from(section__title);
     const bounding = section__titleArr[i].getBoundingClientRect();
     console.log(bounding);
-    let isInViewport = function (bounding) {
-        return (
-            bounding.top >= 0 &&
-            bounding.left >= 0 &&
-            bounding.bottom <=
-            (window.innerHeight || document.documentElement.clientHeight) &&
-            bounding.right <=
-            (window.innerWidth || document.documentElement.clientWidth)
-        );
+    if (
+        bounding.top >= 0 &&
+        bounding.left >= 0 &&
+        bounding.bottom <=
+        (window.innerHeight || document.documentElement.clientHeight) &&
+        bounding.right <=
+        (window.innerWidth || document.documentElement.clientWidth)
+    ) {
+        console.log("yay");
     };
-    window.addEventListener("scroll", function () {
-        if (isInViewport(section__titleArr)) {
-            section__titleArr.classList.add("active__class");
-        }
-    });
+    // window.addEventListener("scroll", function () {
+    //     if (isInViewport(section__titleArr)) {
+    //         section__titleArr.classList.add("active__class");
+    //     }
+    // });
 };
 
 
