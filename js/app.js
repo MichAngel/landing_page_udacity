@@ -4,32 +4,34 @@ const nav__bar = document.getElementById("navbar__list");
 for (let i = 0; i < body__sections.length; i++) {
     const nav__li = document.createElement("li");
     const sections = document.getElementsByTagName("section");
-    nav__li.innerHTML = `<a href="#${sections[i].id}">${sections[i].id}</a>`;
+    nav__li.innerHTML = `<a onClick="add__class" href="#${sections[i].id}">${sections[i].id}</a>`;
     navbar__list.appendChild(nav__li);
 
-};
+    function add__class(nav__li) {
+        nav__li.classList.add("active__class");
+        console.log(nav__li);
+    };
 
-
-for (let i = 0; i < body__sections.length; i++) {
     const section__title = document.getElementsByTagName("section");
     const section__titleArr = Array.from(section__title);
     const bounding = section__titleArr[i].getBoundingClientRect();
-    console.log(bounding);
-    if (
-        bounding.top >= 0 &&
-        bounding.left >= 0 &&
-        bounding.bottom <=
-        (window.innerHeight || document.documentElement.clientHeight) &&
-        bounding.right <=
-        (window.innerWidth || document.documentElement.clientWidth)
-    ) {
-        console.log("yay");
+    function isInViewport() {
+        if (
+            bounding.top >= 0 &&
+            bounding.left >= 0 &&
+            bounding.bottom <=
+            (window.innerHeight || document.documentElement.clientHeight) &&
+            bounding.right <=
+            (window.innerWidth || document.documentElement.clientWidth)
+        ); false;
+
     };
-    // window.addEventListener("scroll", function () {
-    //     if (isInViewport(section__titleArr)) {
-    //         section__titleArr.classList.add("active__class");
-    //     }
-    // });
+    window.addEventListener("scroll", function () {
+        if (isInViewport(section__titleArr[i])) {
+            section__titleArr[i].classList.add('active__class');
+        };
+        console.log(section__titleArr[i]);
+    });
 };
 
 
