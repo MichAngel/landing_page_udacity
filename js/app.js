@@ -28,9 +28,9 @@ for (let i = 0; i < body__sections.length; i++) {
     };
     window.addEventListener("scroll", function () {
         if (isInViewport(section__titleArr[i])) {
-            section__titleArr[i].classList.add('active__class');
-        };
-        console.log(section__titleArr[i]);
+            section__titleArr[i].classList.add("active__class");
+        }
+        console.log(section__titleArr[i].classList);
     });
 };
 
